@@ -16,7 +16,9 @@ jobs:
         run: echo "🎉 Hello from GitHub Actions!"
 
       - name: Access secret
-        run: echo "Secret length- ${#{{ secrets.TEST_SECRET }}}"
+        run: 'echo "Secret length: ${#SECRET_VAR}"'
+        env:
+          SECRET_VAR: '${{ secrets.TEST_SECRET }}'
       
       - name: Print current time
         run: date
@@ -30,7 +32,7 @@ jobs:
           echo "Actor: ${{ github.actor }}"
       
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: List files
         run: ls -la
