@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Print hello message
         run: echo "🎉 Hello from GitHub Actions!"
+
+      - name: Access secret
+        run: echo "Secret length- ${#{{ secrets.TEST_SECRET }}}"
       
       - name: Print current time
         run: date
