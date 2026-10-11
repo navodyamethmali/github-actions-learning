@@ -25,7 +25,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Print environment
         run: |
@@ -33,7 +33,7 @@ jobs:
           echo "Log Level: ${{ env.LOG_LEVEL }}"
       
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -41,7 +41,7 @@ jobs:
       
       - name: Install dependencies
         working-directory: ./sample-app
-        run: npm ci
+        run: npm install
       
       - name: Run linter
         working-directory: ./sample-app
