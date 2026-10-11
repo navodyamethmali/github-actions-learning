@@ -36,8 +36,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: 'sample-app/package-lock.json'
+          # 🟢 Caching removed to prevent path resolution failures
       
       - name: Install dependencies
         working-directory: ./sample-app
@@ -84,8 +83,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: 'sample-app/package-lock.json'
+          # 🟢 Caching removed to prevent path resolution failures
       
       - name: Install dependencies
         working-directory: ./sample-app
