@@ -1,0 +1,24 @@
+name: Custom Workfow
+
+on: 
+  push: 
+    branches: [develop]
+
+jobs:
+  custom-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/checkout@v4
+        with:
+          node-version: 18
+
+      - name: Install and Test sample-app
+        run: |
+          npm install
+          npm test
+        working-directory: sample-app
